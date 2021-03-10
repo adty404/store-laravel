@@ -44,5 +44,12 @@ Route::get('/dashboard/account', 'DashboardSettingController@account')
 
 Route::get('/dashboard/logout', 'DashboardController@logout')->name('logout');
 
+// ->middleware(['auth', 'admin']) //Use it later after create authentication
+Route::prefix('admin')
+    ->namespace('Admin')
+    ->group(function() {
+        
+        Route::get('/', 'DashboardController@index')->name('admin-dashboard');
+});
 
 Auth::routes();

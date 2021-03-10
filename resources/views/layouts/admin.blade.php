@@ -34,37 +34,37 @@
               Dashboard
             </a>
             <a
-              href="{{ route('product.index') }}"
+              href="#"
               class="list-group-item list-group-item-action {{ (request()->is('admin/product')) ? 'active' : '' }} "
             >
               Products
             </a>
             <a
-              href="{{ route('product-gallery.index') }}"
+              href="#"
               class="list-group-item list-group-item-action {{ (request()->is('admin/product-gallery*')) ? 'active' : '' }} "
             >
               Galleries
             </a>
             <a
-              href="{{ route('category.index') }}"
+              href="#"
               class="list-group-item list-group-item-action {{ (request()->is('admin/category*')) ? 'active' : '' }} "
             >
               Categories
             </a>
             <a
-              href="{{ route('transaction.index') }}"
+              href="#"
               class="list-group-item list-group-item-action"
             >
               Transactions
             </a>
             <a
-              href="{{ route('user.index') }}"
+              href="#"
               class="list-group-item list-group-item-action {{ (request()->is('admin/user*')) ? 'active' : '' }} "
             >
               Users
             </a>
             <a
-              href="/index.html"
+              href="#"
               class="list-group-item list-group-item-action"
             >
               Sign Out
