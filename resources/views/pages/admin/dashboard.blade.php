@@ -23,7 +23,7 @@ Store Dashboard
                                 Customer
                             </div>
                             <div class="dashboard-card-subtitle">
-                                15,209
+                                {{ $customer }}
                             </div>
                         </div>
                     </div>
@@ -35,7 +35,7 @@ Store Dashboard
                                 Revenue
                             </div>
                             <div class="dashboard-card-subtitle">
-                                $931,290
+                                ${{ $revenue }}
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@ Store Dashboard
                                 Transaction
                             </div>
                             <div class="dashboard-card-subtitle">
-                                22,409
+                                {{ $transaction }}
                             </div>
                         </div>
                     </div>
