@@ -53,6 +53,9 @@ Route::prefix('admin')
 
         //Category
         Route::resource('category', 'CategoryController');
+
+        //User
+        Route::resource('user', 'UserController');
 });
 
 Auth::routes();

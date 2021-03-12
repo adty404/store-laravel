@@ -58,7 +58,7 @@
               Transactions
             </a>
             <a
-              href="#"
+              href="{{ route('user.index') }}"
               class="list-group-item list-group-item-action {{ (request()->is('admin/user*')) ? 'active' : '' }} "
             >
               Users
