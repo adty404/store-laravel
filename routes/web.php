@@ -56,6 +56,9 @@ Route::prefix('admin')
 
         //User
         Route::resource('user', 'UserController');
+
+        //Product
+        Route::resource('product', 'ProductController');
 });
 
 Auth::routes();
