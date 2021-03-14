@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-Add User
+Add Product
 @endsection
 
 @section('content')
@@ -9,9 +9,9 @@ Add User
 <div class="section-content section-dashboard-home" data-aos="fade-up">
     <div class="container-fluid">
         <div class="dashboard-heading">
-            <h2 class="dashboard-title">User</h2>
+            <h2 class="dashboard-title">Product</h2>
             <p class="dashboard-subtitle">
-                Create New User
+                Create New Product
             </p>
         </div>
         <div class="dashboard-content">
@@ -26,36 +26,47 @@ Add User
                         </ul>
                     </div>
                     @endif
-                    <form action="{{ route('user.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('product.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>Nama User</label>
+                                            <label>Nama Product</label>
                                             <input type="text" class="form-control" name="name" required />
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>Email User</label>
-                                            <input type="email" class="form-control" name="email" required />
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label>Password User</label>
-                                            <input type="password" class="form-control" name="password" required />
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label>Roles</label>
-                                            <select name="roles" required class="form-control">
-                                                <option value="ADMIN">Admin</option>
-                                                <option value="USER">User</option>
+                                            <label>Pemilik Product</label>
+                                            <select name="users_id" class="form-control">
+                                                @foreach ($users as $user)
+                                                <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                                @endforeach
                                             </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Kategori Product</label>
+                                            <select name="categories_id" class="form-control">
+                                                @foreach ($categories as $categories)
+                                                <option value="{{ $categories->id }}">{{ $categories->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Harga</label>
+                                            <input type="number" class="form-control" name="price" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Deskripsi</label>
+                                            <textarea name="description" id="editor"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -74,3 +85,10 @@ Add User
     </div>
 </div>
 @endsection
+
+@push('addon-script')
+<script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('editor');
+</script>
+@endpush
