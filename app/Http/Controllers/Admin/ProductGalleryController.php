@@ -128,6 +128,9 @@ class ProductGalleryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = ProductGallery::findorFail($id);
+        $item->delete();
+
+        return redirect()->route('product-gallery.index');
     }
 }
