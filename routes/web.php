@@ -59,6 +59,9 @@ Route::prefix('admin')
 
         //Product
         Route::resource('product', 'ProductController');
+
+        //Product Gallery
+        Route::resource('product-gallery', 'ProductGalleryController');
 });
 
 Auth::routes();
