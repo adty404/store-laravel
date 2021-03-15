@@ -108,7 +108,15 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = Product::with(['category','user'])->findOrFail($id);
+        $users = User::all();
+        $categories = Category::all();
+        
+        return view('pages.admin.product.edit',[
+            'item' => $item,
+            'users' => $users,
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -118,9 +126,17 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductRequest $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $item = Product::findOrFail($id);
+
+        $data['slug'] = Str::slug($request->name);
+
+        $item->update($data);
+
+        return redirect()->route('product.index');
     }
 
     /**
