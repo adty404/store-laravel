@@ -24,7 +24,16 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function detail(){
-        
+    public function detail(Request $request, $slug)
+    {
+        $categories = Category::all();
+        $category = Category::where('slug', $slug)->firstOrFail();
+        $products = Product::where('categories_id', $category->id)->paginate($request->input('limit', 12));
+
+        return view('pages.category',[
+            'categories' => $categories,
+            'category' => $category,
+            'products' => $products
+        ]);
     }
 }
