@@ -220,8 +220,8 @@ Store Register Page
         },
         data() {
             return {
-                name: "Aditya Prasetyo",
-                email: "aditya@store.com",
+                name: "",
+                email: "",
                 is_store_open: true,
                 store_name: "",
                 email_unavailable: false

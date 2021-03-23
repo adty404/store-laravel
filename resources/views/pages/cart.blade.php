@@ -86,8 +86,12 @@ Store Cart Page
             </div>
 
             {{-- FORM TRANSACTION --}}
-            <form action="" id="locations">
+            <form action="{{ route('checkout') }}" id="locations" enctype="multipart/form-data" method="POST">
+                @csrf
+
                 <!-- Shipping Details Form -->
+                <input type="hidden" name="total_price" value="{{ $totalPrice }}">
+
                 <div class="row mb-2" data-aos="fade-up" data-aos-delay="200" id="locations">
                     <div class="col-md-6">
                         <div class="form-group">
