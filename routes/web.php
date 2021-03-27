@@ -61,9 +61,8 @@ Route::group(['middleware' => ['auth']], function(){
         ->name('dashboard-settings-store');
     Route::get('/dashboard/account', 'DashboardSettingController@account')
         ->name('dashboard-settings-account');
-
-    Route::get('/dashboard/logout', 'DashboardController@logout')->name('logout');
-
+    Route::post('/dashboard/account/{redirect}', 'DashboardSettingController@update')
+        ->name('dashboard-settings-redirect');
 });
 
 
