@@ -86,6 +86,9 @@ Route::prefix('admin')
 
         //Product Gallery
         Route::resource('product-gallery', 'ProductGalleryController');
+
+        //Transaction
+        Route::resource('transaction', 'TransactionController');
 });
 
 Auth::routes();
